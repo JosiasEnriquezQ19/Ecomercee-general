@@ -18,9 +18,6 @@ const ctaClasses: Record<PromoSlide["theme"], string> = {
   soft: "bg-ink text-ink-foreground hover:bg-ink/90",
 };
 
-const slideImages = [
-  { src: "/no-image-placeholder", skip: true },
-];
 
 function SlideContent({ slide }: { slide: PromoSlide }) {
   return (
