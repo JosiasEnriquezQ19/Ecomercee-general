@@ -7,12 +7,12 @@ import { categories, products, type CategoryId } from "@/data/products";
 import { cn } from "@/lib/utils";
 
 interface HomeSearch {
-  q?: string;
-  cat?: CategoryId;
+  q?: string | undefined;
+  cat?: CategoryId | undefined;
 }
 
 export const Route = createFileRoute("/")({
-  validateSearch: (search: Record<string, unknown>): { q: string | undefined; cat: CategoryId | undefined } => ({
+  validateSearch: (search: Record<string, unknown>): HomeSearch => ({
     q: typeof search["q"] === "string" && search["q"].trim() ? search["q"].trim() : undefined,
     cat: categories.some((c) => c.id === search["cat"])
       ? (search["cat"] as CategoryId)

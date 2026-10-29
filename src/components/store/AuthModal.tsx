@@ -64,8 +64,8 @@ export function AuthModal() {
       setError("Completa tu correo y contraseña.");
       return;
     }
-    const name = loginForm.email.split("@")[0];
-    login({ name: name.charAt(0).toUpperCase() + name.slice(1), email: loginForm.email });
+    const handle = loginForm.email.split("@")[0] ?? "usuario";
+    const name = handle.charAt(0).toUpperCase() + handle.slice(1);
     toast.success("¡Bienvenido de vuelta!");
     setLoginForm(emptyForm);
     setError(null);
