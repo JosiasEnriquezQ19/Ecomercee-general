@@ -25,19 +25,24 @@ const emptyForm: FormState = { name: "", email: "", password: "" };
 function PasswordInput({
   value,
   onChange,
+  id,
+  autoComplete = "current-password",
 }: {
   value: string;
   onChange: (v: string) => void;
+  id?: string;
+  autoComplete?: string;
 }) {
   const [show, setShow] = useState(false);
   return (
     <div className="relative">
       <Input
+        id={id}
         type={show ? "text" : "password"}
         value={value}
         onChange={(e) => onChange(e.target.value)}
         placeholder="••••••••"
-        autoComplete="current-password"
+        autoComplete={autoComplete}
         className="h-11 rounded-xl pr-10"
       />
       <button
