@@ -12,10 +12,10 @@ interface HomeSearch {
 }
 
 export const Route = createFileRoute("/")({
-  validateSearch: (search: Record<string, unknown>): HomeSearch => ({
-    q: typeof search.q === "string" && search.q.trim() ? search.q.trim() : undefined,
-    cat: categories.some((c) => c.id === search.cat)
-      ? (search.cat as CategoryId)
+  validateSearch: (search: Record<string, unknown>): { q: string | undefined; cat: CategoryId | undefined } => ({
+    q: typeof search["q"] === "string" && search["q"].trim() ? search["q"].trim() : undefined,
+    cat: categories.some((c) => c.id === search["cat"])
+      ? (search["cat"] as CategoryId)
       : undefined,
   }),
   component: Index,

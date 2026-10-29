@@ -123,7 +123,7 @@ function ProductDetail() {
               width={1024}
               height={1024}
               className="size-full object-cover transition-transform duration-300"
-              style={galleryViews[activeView].style}
+              style={galleryViews[activeView]?.style ?? {}}
             />
             {discount > 0 && (
               <span className="absolute left-4 top-4 rounded-full bg-brand px-3 py-1 text-sm font-bold text-brand-foreground">
