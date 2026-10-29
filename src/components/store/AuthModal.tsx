@@ -66,6 +66,7 @@ export function AuthModal() {
     }
     const handle = loginForm.email.split("@")[0] ?? "usuario";
     const name = handle.charAt(0).toUpperCase() + handle.slice(1);
+    login({ name, email: loginForm.email });
     toast.success("¡Bienvenido de vuelta!");
     setLoginForm(emptyForm);
     setError(null);
