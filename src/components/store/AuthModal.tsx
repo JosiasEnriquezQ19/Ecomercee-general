@@ -25,19 +25,24 @@ const emptyForm: FormState = { name: "", email: "", password: "" };
 function PasswordInput({
   value,
   onChange,
+  id,
+  autoComplete = "current-password",
 }: {
   value: string;
   onChange: (v: string) => void;
+  id?: string;
+  autoComplete?: string;
 }) {
   const [show, setShow] = useState(false);
   return (
     <div className="relative">
       <Input
+        id={id}
         type={show ? "text" : "password"}
         value={value}
         onChange={(e) => onChange(e.target.value)}
         placeholder="••••••••"
-        autoComplete="current-password"
+        autoComplete={autoComplete}
         className="h-11 rounded-xl pr-10"
       />
       <button
@@ -64,8 +69,9 @@ export function AuthModal() {
       setError("Completa tu correo y contraseña.");
       return;
     }
-    const name = loginForm.email.split("@")[0];
-    login({ name: name.charAt(0).toUpperCase() + name.slice(1), email: loginForm.email });
+    const handle = loginForm.email.split("@")[0] ?? "usuario";
+    const name = handle.charAt(0).toUpperCase() + handle.slice(1);
+    login({ name, email: loginForm.email });
     toast.success("¡Bienvenido de vuelta!");
     setLoginForm(emptyForm);
     setError(null);
