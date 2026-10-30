@@ -142,6 +142,7 @@ export function AuthModal() {
               <div className="flex flex-col gap-1.5">
                 <Label htmlFor="login-password">Contraseña</Label>
                 <PasswordInput
+                  id="login-password"
                   value={loginForm.password}
                   onChange={(v) => setLoginForm({ ...loginForm, password: v })}
                 />
