@@ -183,6 +183,8 @@ export function AuthModal() {
               <div className="flex flex-col gap-1.5">
                 <Label htmlFor="reg-password">Contraseña</Label>
                 <PasswordInput
+                  id="reg-password"
+                  autoComplete="new-password"
                   value={registerForm.password}
                   onChange={(v) => setRegisterForm({ ...registerForm, password: v })}
                 />
