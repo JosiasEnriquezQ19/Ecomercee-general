@@ -178,7 +178,7 @@ export function CartDrawer() {
                   </ul>
                 </div>
 
-                <SheetFooter className="border-t border-border p-5 pt-4">
+                <SheetFooter className="shrink-0 flex-col gap-1.5 border-t border-border p-5 pt-4">
                   <div className="flex items-center justify-between text-sm">
                     <span className="text-muted-foreground">Subtotal</span>
                     <span className="text-xl font-bold">{formatPrice(cartTotal)}</span>
